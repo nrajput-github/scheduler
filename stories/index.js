@@ -8,7 +8,8 @@ import Button from "components/Button";
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
 import InterviewerListItem from "components/InterviewerListItem";
-import InterviewerList from "components/InterviewerList";
+import InterviewerList from "components/InterviewerList"; 
+import Appointment from "components/Appointment/index.js";
 
 
 storiesOf("Button", module)
@@ -121,7 +122,7 @@ storiesOf("InterviewerList", module)
       interviewers={interviewers}
     />
   ))
-  
+
   .add("Selected", () => (
     <InterviewerList
       interviewers={interviewers}
@@ -134,3 +135,9 @@ storiesOf("InterviewerList", module)
       onChange={action("setInterviewer")}
     />
   ));
+storiesOf("Appointment", module)
+  .addParameters({
+    backgrounds: [{ name: "white", value: "#fff", default: true }]
+  })
+  .add("Appointment", () => <Appointment />)
+  .add("Appointment with Time", () => <Appointment time="12pm" />);
