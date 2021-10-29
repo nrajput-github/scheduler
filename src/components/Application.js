@@ -32,7 +32,7 @@ const appointments = [
     interview: {
       student: "Lydia Miller-Jones",
       interviewer: {
-        id: 1,
+        id: 3,
         name: "Sylvia Palmer",
         avatar: "https://i.imgur.com/LpaY82x.png",
       }
@@ -41,32 +41,23 @@ const appointments = [
   {
     id: 3,
     time: "2pm",
-    interview: {
-      student: "David Claveau",
-      interviewer: {
-        id: 1,
-        name: "Sven Jones",
-        avatar: "https://i.imgur.com/twYrpay.jpg",
-      }
-    }
   },
   {
     id: 4,
-    time: "3pm"
+    time: "3pm",
+    interview: {
+      student: "Archie Andrews",
+      interviewer: {
+        id: 4,
+        name: "Cohana Roy",
+        avatar: "https://i.imgur.com/FK8V841.jpg",
+      }
+    }
   },
   {
     id: 5,
     time: "4pm",
-    interview: {
-      student: "Caitlin Ing",
-      interviewer: {
-        id: 2,
-        name: "Tori Malcolm",
-        avatar: "https://i.imgur.com/Nmx0Qxo.png",
-      }
-    }
   }
-
 ];
 
 export default function Application(props) {
