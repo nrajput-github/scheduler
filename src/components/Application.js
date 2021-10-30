@@ -5,6 +5,7 @@ import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "components/Appointment";
 
+/*
 const days = [
   {
     id: 1,
@@ -22,6 +23,7 @@ const days = [
     spots: 0,
   },
 ];
+*/
 const appointments = [
   {
     id: 1,
