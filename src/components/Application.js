@@ -5,25 +5,6 @@ import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "components/Appointment";
 
-/*
-const days = [
-  {
-    id: 1,
-    name: "Monday",
-    spots: 2,
-  },
-  {
-    id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
-];
-*/
 const appointments = [
   {
     id: 1,
@@ -35,7 +16,7 @@ const appointments = [
     interview: {
       student: "Lydia Miller-Jones",
       interviewer: {
-        id: 3,
+        id: 1,
         name: "Sylvia Palmer",
         avatar: "https://i.imgur.com/LpaY82x.png",
       }
@@ -44,31 +25,49 @@ const appointments = [
   {
     id: 3,
     time: "2pm",
-  },
-  {
-    id: 4,
-    time: "3pm",
     interview: {
-      student: "Archie Andrews",
+      student: "David Claveau",
       interviewer: {
-        id: 4,
-        name: "Cohana Roy",
-        avatar: "https://i.imgur.com/FK8V841.jpg",
+        id: 1,
+        name: "Sven Jones",
+        avatar: "https://i.imgur.com/twYrpay.jpg",
       }
     }
   },
   {
+    id: 4,
+    time: "3pm"
+  },
+  {
     id: 5,
     time: "4pm",
+    interview: {
+      student: "Caitlin Ing",
+      interviewer: {
+        id: 2,
+        name: "Tori Malcolm",
+        avatar: "https://i.imgur.com/Nmx0Qxo.png",
+      }
+    }
   }
+
 ];
 
+
+
 export default function Application(props) {
-  const [day, setDay] = useState("Monday");
-  const [days, setDays] = useState([]);
+
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    appointments: {}
+  })
+
+  const setDay = day => setState({ ...state, day });
+  const setDays = days => setState(prev => ({ ...prev, days }));
 
   useEffect(() => {
-    axios.get("http://localhost:8001/api/days")
+    axios.get("/api/days")
       .then(response => {
         setDays(response.data);
       });
@@ -82,6 +81,8 @@ export default function Application(props) {
       />
     );
   })
+
+
   return (
     <main className="layout">
       <section className="sidebar">
@@ -93,11 +94,10 @@ export default function Application(props) {
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
           <DayList
-            days={days}
-            value={day}
-            onChange={setDay}
+            days={state.days}
+            day={state.day}
+            setDay={setDay}
           />
-
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"
@@ -107,7 +107,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {appointmentList}
-        < Appointment key="last" time="5pm" />
+        <Appointment key="last" time="5pm" />
       </section>
     </main>
   );
