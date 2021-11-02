@@ -15,7 +15,7 @@ export default function Appointment(props) {
   const CREATE = "CREATE";
   const SAVING = "SAVING";
   const ERROR_SAVE = "SAVING_ERROR";
-  const ERROR_NO_INTERVIEWER = "INTERVIEWER ERROR";
+  const ERROR_MISSING_INFO = "MISSING INFO ERROR";
   const CONFIRM = "CONFIRM";
   const DELETING = "DELETING";
   const ERROR_DELETE = "DELETING_ERROR";
@@ -27,13 +27,14 @@ export default function Appointment(props) {
 
   function save(name, interviewer) {
     transition(SAVING);
+
     const interview = {
       student: name,
       interviewer: interviewer
     };
 
-    if (!interview.interviewer) {
-      transition(ERROR_NO_INTERVIEWER, true)
+    if (!interview.interviewer || !interview.student) {
+      transition(ERROR_MISSING_INFO, true)
     } else {
       props.bookInterview(props.id, interview)
         .then(response => {
@@ -74,7 +75,7 @@ export default function Appointment(props) {
       {mode === CONFIRM && <Confirm message='Are you sure you would like to delete?' onCancel={() => back()} onConfirm={cancel} />}
       {mode === ERROR_DELETE && <Error message='Error deleting appointment' onClose={() => back()} />}
       {mode === ERROR_SAVE && <Error message='Error saving appointment' onClose={() => back()} />}
-      {mode === ERROR_NO_INTERVIEWER && <Error message='Error: No Interviewer Selected' onClose={() => back()} />}
+      {mode === ERROR_MISSING_INFO && <Error message='Please ensure to include both your name and a selected interviewer' onClose={() => back()} />}
     </article>
   );
 };
