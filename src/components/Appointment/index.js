@@ -37,7 +37,7 @@ export default function Appointment(props) {
       transition(ERROR_MISSING_INFO, true)
     } else {
       props.bookInterview(props.id, interview)
-        .then(response => {
+        .then(() => {
           transition(SHOW);
         })
         .catch(error => {
@@ -54,7 +54,7 @@ export default function Appointment(props) {
     transition(DELETING, true);
 
     props.cancelInterview(props.id)
-      .then(response => {
+      .then(() => {
         transition(EMPTY);
       })
       .catch(error => {
