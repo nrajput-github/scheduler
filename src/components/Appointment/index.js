@@ -33,17 +33,19 @@ export default function Appointment(props) {
       interviewer: interviewer
     };
 
+    /*
     if (!interview.interviewer || !interview.student) {
       transition(ERROR_MISSING_INFO, true)
     } else {
-      props.bookInterview(props.id, interview)
-        .then(() => {
-          transition(SHOW);
-        })
-        .catch(error => {
-          transition(ERROR_SAVE, true);
-        })
-    }
+      */
+    props.bookInterview(props.id, interview)
+      .then(() => {
+        transition(SHOW);
+      })
+      .catch(error => {
+        transition(ERROR_SAVE, true);
+      })
+    //}
   };
 
   function confirmation() {
