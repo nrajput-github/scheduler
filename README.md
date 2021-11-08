@@ -48,3 +48,8 @@ npm run storybook
 - react
 - react-dom
 - react-scripts
+- node-saas
+- react-hooks-testing-library
+- react-test-renderer
+- prop-types
+- cypress
