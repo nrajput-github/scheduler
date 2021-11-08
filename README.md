@@ -38,3 +38,13 @@ npm run storybook
 *Schedule page showing delete booked spots appointment* 
 
 !["Screenshot main delete appointment page "](https://github.com/nrajput-github/scheduler/blob/master/docs/Delete%20appoinment.png)
+
+
+## Dependencies
+
+- axios
+- classnames
+- normalize.css
+- react
+- react-dom
+- react-scripts

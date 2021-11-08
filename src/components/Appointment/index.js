@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "components/Appointment/styles.scss";
 import Header from "components/Appointment/Header";
 import Empty from "components/Appointment/Empty";
@@ -32,12 +32,9 @@ export default function Appointment(props) {
       student: name,
       interviewer: interviewer
     };
-
-    /*
-    if (!interview.interviewer || !interview.student) {
+  if(!interview.interviewer){
       transition(ERROR_MISSING_INFO, true)
     } else {
-      */
     props.bookInterview(props.id, interview)
       .then(() => {
         transition(SHOW);
@@ -45,7 +42,8 @@ export default function Appointment(props) {
       .catch(error => {
         transition(ERROR_SAVE, true);
       })
-    //}
+  }
+ 
   };
 
   function confirmation() {
