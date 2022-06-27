@@ -9,8 +9,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-hooks-testing-library": "^0.6.0",
-    "react-scripts": "3.0.0",
-    "node-sass": "^4.14.0"
+    "react-scripts": "3.0.0"
   },
   "scripts": {
     "cypress": "cypress open -P .",
@@ -43,8 +42,10 @@
     "@testing-library/jest-dom": "^4.0.0",
     "@testing-library/react": "^8.0.7",
     "babel-loader": "^8.0.5",
+    "node-sass": "^4.14.0",
     "prop-types": "^15.7.2",
-    "react-test-renderer": "^16.9.0"
+    "react-test-renderer": "^16.9.0",
+    "sass": "^1.53.0"
   },
   "jest": {
     "watchPathIgnorePatterns": [
