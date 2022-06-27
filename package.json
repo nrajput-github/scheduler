@@ -10,8 +10,7 @@
     "react-dom": "^16.9.0",
     "react-hooks-testing-library": "^0.6.0",
     "react-scripts": "3.0.0",
-    "sass": "^1.53.0",
-    "sass-loader": "^13.0.1"
+    "node-sass": "^4.14.0"
   },
   "scripts": {
     "cypress": "cypress open -P .",
