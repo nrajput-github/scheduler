@@ -14,3 +14,5 @@
 [build.environment]
   REACT_APP_API_BASE_URL = "https://scheduler-navya.herokuapp.com/"
   REACT_APP_WEBSOCKET_URL = "wss://scheduler-navya.herokuapp.com/"
+  NODE_VERSION = "12.22.9"
+  NPM_VERSION = "6.14.15"
